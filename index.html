@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antonio Sánchez Doña | Biomedical Engineering and Bioinformatics</title>
+<meta name="description" content="Portfolio of Antonio Sánchez Doña, Biomedical Engineering and Bioinformatics student at the University of Málaga: clinical data, machine learning, RNA-seq and biomedical modelling.">
+<meta property="og:title" content="Antonio Sánchez Doña">
+<meta property="og:description" content="Biomedical Engineering and Bioinformatics student at the University of Málaga. Clinical data, machine learning, RNA-seq and biomedical modelling.">
+<meta property="og:image" content="https://antoniodoa9.github.io/img/og.jpg">
+<link rel="icon" href="img/helix.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F6FB; --ink:#0E1B33; --muted:#55627A; --blue:#1E4FD8; --blue-soft:#DCE6FB;
+  --grid:#DCE4F2; --grid-strong:#C5D2EA; --wine:#7A2438; --wine-ink:#F7E9EC;
+  --display:'Bricolage Grotesque', system-ui, sans-serif; --body:'IBM Plex Sans', system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:5;background:rgba(243,246,251,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--grid)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .me{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+nav ul a:hover{color:var(--ink)}
+
+/* hero on ECG paper */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--grid-strong);
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid-strong) 1px,transparent 1px),linear-gradient(90deg,var(--grid-strong) 1px,transparent 1px),
+    linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+.hero .wrap{padding-top:88px;padding-bottom:40px;position:relative;z-index:1}
+.hero-top{display:flex;align-items:center;gap:22px;margin-bottom:26px}
+.hero-top img{width:84px;height:84px;border-radius:50%;border:3px solid var(--blue);object-fit:cover}
+.hero-top p{margin:0;color:var(--muted);font-weight:500}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,8.4vw,108px);line-height:.95;letter-spacing:-.02em;margin:0 0 26px;max-width:11ch}
+.lede{font-size:clamp(18px,2.1vw,22px);max-width:40em;color:var(--ink);margin:0 0 30px}
+.trace{position:relative;height:120px;margin:0 -28px}
+.trace svg{width:100%;height:100%}
+.trace path{fill:none;stroke:var(--blue);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:2600;stroke-dashoffset:2600;animation:draw 2.4s .3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.readout{display:flex;flex-wrap:wrap;gap:12px 34px;padding:6px 0 0;margin:0;list-style:none}
+.readout li{font-size:15px;color:var(--muted)}
+.readout b{display:block;font-family:var(--display);font-size:30px;line-height:1.1;color:var(--ink)}
+
+section{padding:84px 0}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4vw,44px);line-height:1.1;margin:0 0 14px;letter-spacing:-.01em}
+.intro{color:var(--muted);max-width:40em;margin:0 0 40px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+.about p{text-align:justify;hyphens:auto;margin:0 0 16px}
+.facts{margin:0;padding:0;list-style:none;border-left:3px solid var(--blue)}
+.facts li{padding:10px 0 10px 20px;border-bottom:1px solid var(--grid)}
+.facts li:last-child{border-bottom:0}
+.facts strong{display:block;font-weight:600}
+.facts span{color:var(--muted);font-size:15px}
+
+/* projects */
+.feature{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 32px}
+.proj figure{margin:0 0 16px;background:#fff;border:1px solid var(--grid-strong);border-radius:14px;overflow:hidden;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:12px}
+.proj figure img{max-height:100%;object-fit:contain}
+.proj h3{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.2;margin:0 0 6px}
+.proj p{margin:0 0 12px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none}
+.tags li{font-size:13px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:#16348F}
+.links{display:flex;gap:18px;font-weight:600;font-size:15px}
+.more{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.more .proj figure{aspect-ratio:16/11}
+.more .proj h3{font-size:20px}
+.small-list{margin:40px 0 0;padding:0;list-style:none;columns:2;column-gap:40px}
+.small-list li{break-inside:avoid;padding:10px 0;border-top:1px solid var(--grid)}
+.small-list a{font-weight:600}
+.small-list span{color:var(--muted)}
+
+/* music band */
+.music{background:var(--wine);color:var(--wine-ink)}
+.music .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.music h2{color:#fff}
+.music p{text-align:justify;hyphens:auto}
+.music a.btn{display:inline-block;margin-top:8px;background:#fff;color:var(--wine);padding:11px 20px;border-radius:999px;font-weight:600;text-decoration:none}
+.music a.btn:hover{background:var(--wine-ink)}
+
+/* tools */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 36px}
+.tools h3{font-family:var(--display);font-size:19px;margin:0 0 8px}
+.tools p{margin:0;color:var(--muted);font-size:15.5px}
+
+/* contact */
+.contact{border-top:1px solid var(--grid-strong)}
+.contact ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:14px}
+.contact a{display:inline-block;padding:12px 20px;border:1.5px solid var(--ink);border-radius:999px;text-decoration:none;color:var(--ink);font-weight:600}
+.contact a:hover{background:var(--ink);color:var(--paper)}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .about,.music .wrap{grid-template-columns:1fr}
+  .feature,.more{grid-template-columns:1fr}
+  .tools{grid-template-columns:1fr 1fr}
+  .small-list{columns:1}
+}
+@media (max-width:560px){.tools{grid-template-columns:1fr}.readout b{font-size:26px}}
+@media (prefers-reduced-motion:reduce){.trace path{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="me" href="#top">Antonio Sánchez Doña</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <img src="https://github.com/antoniodoa9.png" alt="Portrait of Antonio Sánchez Doña">
+      <p>Biomedical Engineering and Bioinformatics student<br>University of Málaga, Spain</p>
+    </div>
+    <h1>Antonio Sánchez Doña</h1>
+    <p class="lede">I work where medicine, data and software meet: clinical data, machine learning, RNA-seq pipelines and models of how the body responds to treatment. I like results that can be checked and reproduced.</p>
+    <div class="trace" aria-hidden="true">
+      <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70 H210 L226 70 L236 60 L246 70 L262 70 L272 80 L288 10 L304 110 L316 70 L340 70 L360 56 L384 70 H560 L576 70 L586 60 L596 70 L612 70 L622 80 L638 10 L654 110 L666 70 L690 70 L710 56 L734 70 H910 L926 70 L936 60 L946 70 L962 70 L972 80 L988 10 L1004 110 L1016 70 L1040 70 L1060 56 L1084 70 H1200"/></svg>
+    </div>
+    <ul class="readout">
+      <li><b>1st</b>of my year</li>
+      <li><b>8.81/10</b>average grade</li>
+      <li><b>22</b>honours grades so far</li>
+      <li><b>12 years</b>at the conservatory</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I'm a student of Health Engineering at the University of Málaga. I've completed the Biomedical Engineering track and I'm now finishing the Bioinformatics track too, so my training covers both sides: biomechanics, medical instrumentation and physiological modelling on one hand, and genomics, data mining and machine learning on the other.</p>
+      <p>What I enjoy most is turning clinical and biological data into something a doctor could actually trust. That is why I care about the method as much as the result: repeated cross-validation instead of a single split, a simple baseline to compare against, and code that anyone can run again from the repository.</p>
+      <p>Before engineering there was music. I spent twelve years at the conservatory, and the habit of daily practice and patience still shapes how I approach technical work.</p>
+    </div>
+    <ul class="facts">
+      <li><strong>First of my year</strong><span>Health Engineering, University of Málaga</span></li>
+      <li><strong>8.81/10 average, 22 honours grades</strong><span>Biomedical Engineering track completed, Bioinformatics track in progress</span></li>
+      <li><strong>Final degree project (in progress)</strong><span>Predicting molecular alterations in lung adenocarcinoma from H&amp;E histology with pathology foundation models</span></li>
+      <li><strong>Peer mentor since 2024</strong><span>Helping first-year students at the ETSI Informática with maths and the degree</span></li>
+      <li><strong>NVIDIA DLI certificate</strong><span>Fundamentals of Accelerated Computing with Modern CUDA C++</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" style="padding-top:20px">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="intro">A selection of work from the degree. Each one links to its repository, with the code, the data that can be shared and a README that explains how to reproduce it.</p>
+
+    <div class="feature">
+      <article class="proj">
+        <figure><img src="img/pln.jpg" alt="Bar chart of AUC improving from 0.733 to 0.827" loading="lazy"></figure>
+        <h3>Oncology notes classification</h3>
+        <p>Clinical NLP on 239 real Spanish oncology notes to detect patients with more than one neoplasm. The best model raises the AUC from 0.733 to 0.827 and, with a clinical threshold, finds 91 % of those patients.</p>
+        <ul class="tags"><li>Python</li><li>spaCy</li><li>scikit-learn</li><li>Nested CV</li></ul>
+        <div class="links"><a href="https://github.com/antoniodoa9/clasificacion-notas-oncologicas-pln">View code</a></div>
+      </article>
+      <article class="proj">
+        <figure><img src="img/biocalc.jpg" alt="Screenshot of the BioCalc Shiny app" loading="lazy"></figure>
+        <h3>Antibiotics and breast cancer response</h3>
+        <p>Data mining on a clinical cohort: patients without antibiotics reached complete response in 48.1 % of cases against 38 % (p = 0.011). The final model runs as BioCalc, a Shiny app.</p>
+        <ul class="tags"><li>R</li><li>Quarto</li><li>Shiny</li><li>Multiple imputation</li></ul>
+        <div class="links"><a href="https://github.com/antoniodoa9/cancer-mama-respuesta-neoadyuvante">View code</a><a href="https://antonio-sanchez-uma.shinyapps.io/biocalc/">Open BioCalc</a></div>
+      </article>
+      <article class="proj">
+        <figure><img src="img/rnaseq.jpg" alt="Reports page of the Arabidopsis RNA-seq project" loading="lazy"></figure>
+        <h3>RNA-seq of Arabidopsis: Ler vs C24</h3>
+        <p>A full RNA-seq workflow, from raw reads to 28 differentially expressed genes: photosynthesis is more active in Ler and defence response in C24.</p>
+        <ul class="tags"><li>Galaxy</li><li>kallisto</li><li>limma-voom</li><li>g:Profiler</li></ul>
+        <div class="links"><a href="https://github.com/antoniodoa9/arabidopsis-rnaseq-ler-c24">View code</a><a href="https://antoniodoa9.github.io/arabidopsis-rnaseq-ler-c24/">Read the reports</a></div>
+      </article>
+      <article class="proj">
+        <figure><img src="img/pkpd.jpg" alt="BIS curves of five simulated patients" loading="lazy"></figure>
+        <h3>PK-PD model of propofol anaesthesia</h3>
+        <p>A three-compartment model with effect site and Hill equation that simulates how deep each patient's anaesthesia goes, and why one fixed dose does not fit everyone.</p>
+        <ul class="tags"><li>MATLAB</li><li>Simulink</li><li>Pharmacokinetics</li></ul>
+        <div class="links"><a href="https://github.com/antoniodoa9/modelo-pkpd-propofol">View code</a></div>
+      </article>
+    </div>
+
+    <div class="more">
+      <article class="proj">
+        <figure><img src="img/chrono.jpg" alt="Database diagram of ChronoHealthDB" loading="lazy"></figure>
+        <h3>ChronoHealthDB</h3>
+        <p>Health record database with privacy by design. Indexing made the patient history query 62 times faster.</p>
+        <div class="links"><a href="https://github.com/antoniodoa9/ChronoHealthDB">View code</a></div>
+      </article>
+      <article class="proj">
+        <figure><img src="img/diab.jpg" alt="ROC and precision-recall curves of the diabetes model" loading="lazy"></figure>
+        <h3>Diabetes risk screening</h3>
+        <p>Machine learning on the CDC BRFSS 2015 survey: ROC-AUC 0.83 and recall 0.77 with an interpretable model.</p>
+        <div class="links"><a href="https://github.com/antoniodoa9/diabetes-riesgo-ml">View code</a></div>
+      </article>
+      <article class="proj">
+        <figure><img src="img/mindvibe.jpg" alt="Home page of the MindVibe website" loading="lazy"></figure>
+        <h3>MindVibe</h3>
+        <p>An EEG headset concept taken through the whole software engineering lifecycle, with a Spring Boot prototype.</p>
+        <div class="links"><a href="https://github.com/antoniodoa9/mindvibe">View code</a><a href="https://antoniodoa9.github.io/mindvibe/">Visit the site</a></div>
+      </article>
+    </div>
+
+    <ul class="small-list">
+      <li><a href="https://github.com/antoniodoa9/dexametasona-analisis-funcional">Dexamethasone functional analysis</a><br><span>ORA versus GSEA on MSigDB Hallmark gene sets</span></li>
+      <li><a href="https://github.com/antoniodoa9/pab-proyecto">RAG over clinical guidelines</a><br><span>A local LLM that answers from a guideline and cites its pages</span></li>
+      <li><a href="https://github.com/antoniodoa9/healthcalc_ISAgrupo03-Antonio">HealthCalc</a><br><span>Java health calculator built with testing, BDD and design patterns</span></li>
+      <li><a href="https://github.com/antoniodoa9/project_template">Aortic dissection network analysis</a><br><span>Systems biology group project with STRING and igraph (in progress)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="music" class="music">
+  <div class="wrap">
+    <div>
+      <h2>Beyond code</h2>
+      <p>I studied classical piano at the conservatory from the age of 8 to 20. I completed the Professional Piano Degree and the first year of the Higher Degree, and I received the Extraordinary Award in piano from the Junta de Andalucía, an honours grade and the Santa Cecilia award.</p>
+      <p>Twelve years of daily practice taught me something I still use every day: progress comes from small, careful repetitions and from listening honestly to the result.</p>
+      <a class="btn" href="https://www.youtube.com/watch?v=xKA3S4K6r3M">Watch me play Chopin's Scherzo No. 2</a>
+    </div>
+    <a href="https://www.youtube.com/watch?v=xKA3S4K6r3M"><img src="img/piano-collage.svg" alt="Antonio playing the piano on stage in 2015 and years later playing Chopin's Scherzo No. 2"></a>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="wrap">
+    <h2>Tools I've used during the degree</h2>
+    <p class="intro">Grouped by the kind of problem I used them for.</p>
+    <div class="tools">
+      <div><h3>Data science and AI</h3><p>Python, R, scikit-learn, pandas, spaCy, NLTK, LangChain, ChromaDB, Ollama, Jupyter, Quarto, Shiny</p></div>
+      <div><h3>Bioinformatics</h3><p>Galaxy, Bioconductor (edgeR, limma, clusterProfiler, STRINGdb), gseapy, rentrez, Sanger and single-cell data</p></div>
+      <div><h3>Biomedical engineering</h3><p>MATLAB and Simulink, Modelica, LTspice, KiCad, mbed microcontrollers with Bluetooth Low Energy, AutoCAD, medical image processing</p></div>
+      <div><h3>Databases</h3><p>Oracle SQL and PL/SQL, MySQL, SQL Server, MongoDB, XML and XQuery, HL7</p></div>
+      <div><h3>Software engineering</h3><p>Java, C#, Spring Boot, Maven, JUnit, Cucumber, UML with Visual Paradigm, Docker, Git</p></div>
+      <div><h3>Low level and GPU</h3><p>C++, CUDA, MIPS assembly</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p class="intro">Happy to talk about health data, bioinformatics, internships or music.</p>
+    <ul>
+      <li><a href="mailto:antoniosanchezdona9@gmail.com">Email me</a></li>
+      <li><a href="https://www.linkedin.com/in/antoniodoa9">LinkedIn</a></li>
+      <li><a href="https://github.com/antoniodoa9">GitHub</a></li>
+      <li><a href="https://t.me/antoniodoa9">Telegram</a></li>
+      <li><a href="https://www.instagram.com/antoniodoa9/">Instagram</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Antonio Sánchez Doña, Málaga. Built with plain HTML and CSS, hosted on GitHub Pages.</div></footer>
+</body>
+</html>
