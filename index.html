@@ -77,7 +77,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,4vw,44px);lin
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none}
 .tags li{font-size:13px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:#16348F}
 .links{display:flex;gap:18px;font-weight:600;font-size:15px}
-.more{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.more{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:36px 32px}
 .more .proj figure{aspect-ratio:16/11}
 .more .proj h3{font-size:20px}
 .small-list{margin:40px 0 0;padding:0;list-style:none;columns:2;column-gap:40px}
@@ -225,13 +225,18 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:14px}
         <p>An EEG headset concept taken through the whole software engineering lifecycle, with a Spring Boot prototype.</p>
         <div class="links"><a href="https://github.com/antoniodoa9/mindvibe">View code</a><a href="https://antoniodoa9.github.io/mindvibe/">Visit the site</a></div>
       </article>
+      <article class="proj">
+        <figure><img src="img/sysbio.jpg" alt="First page of the aortic dissection systems biology report" loading="lazy"></figure>
+        <h3>Aortic dissection protein network</h3>
+        <p>Systems biology group project: from the HPO phenotype HP:0002647 to a STRING interaction network, its topology, Louvain modules and functional enrichment. The whole analysis runs again with two scripts. In progress.</p>
+        <div class="links"><a href="https://github.com/antoniodoa9/project_template">View code</a><a href="https://github.com/antoniodoa9/project_template/blob/main/report/report.pdf">Read the report</a></div>
+      </article>
     </div>
 
     <ul class="small-list">
       <li><a href="https://github.com/antoniodoa9/dexametasona-analisis-funcional">Dexamethasone functional analysis</a><br><span>ORA versus GSEA on MSigDB Hallmark gene sets</span></li>
       <li><a href="https://github.com/antoniodoa9/pab-proyecto">RAG over clinical guidelines</a><br><span>A local LLM that answers from a guideline and cites its pages</span></li>
       <li><a href="https://github.com/antoniodoa9/healthcalc_ISAgrupo03-Antonio">HealthCalc</a><br><span>Java health calculator built with testing, BDD and design patterns</span></li>
-      <li><a href="https://github.com/antoniodoa9/project_template">Aortic dissection network analysis</a><br><span>Systems biology group project with STRING and igraph (in progress)</span></li>
     </ul>
   </div>
 </section>
